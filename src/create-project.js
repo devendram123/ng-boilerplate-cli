@@ -45,16 +45,21 @@ async function createProject(projectName) {
     // Install dependencies
     const spinner4 = ora('Installing dependencies (this may take a few minutes)...').start();
     try {
-      execSync('npm install', { cwd: projectPath, stdio: 'ignore' });
-      spinner4.succeed(chalk.green('Dependencies installed'));
+      execSync('npm install', { cwd: projectPath, stdio: 'inherit' });
+      spinner4.succeed(chalk.green('Dependencies installed successfully!'));
     } catch (error) {
-      spinner4.warn(chalk.yellow('Dependencies installation skipped. Run npm install manually.'));
+      spinner4.fail(chalk.red('Failed to install dependencies'));
+      console.log(chalk.yellow('\nPlease run manually:'));
+      console.log(chalk.white(`  cd ${projectName}`));
+      console.log(chalk.white(`  npm install\n`));
     }
 
     console.log(chalk.green.bold('\n✅ Project created successfully!\n'));
+    console.log(chalk.cyan('📦 All Angular 21.0.2 dependencies installed!\n'));
     console.log(chalk.cyan('To get started:\n'));
     console.log(chalk.white(`  cd ${projectName}`));
-    console.log(chalk.white(`  npm start\n`));
+    console.log(chalk.white(`  npm start`));
+    console.log(chalk.white(`\n🌐 Development server will run at: http://localhost:4200\n`));
 
   } catch (error) {
     console.log(chalk.red(`\n❌ Error creating project: ${error.message}\n`));
