@@ -69,13 +69,13 @@ async function createProject(projectName) {
     // Install dependencies
     const spinner4 = ora('Installing dependencies (this may take a few minutes)...').start();
     try {
-      execSync('npm install', { cwd: projectPath, stdio: 'inherit' });
+      execSync('npm install --legacy-peer-deps', { cwd: projectPath, stdio: 'inherit' });
       spinner4.succeed(chalk.green('Dependencies installed successfully!'));
     } catch (error) {
       spinner4.fail(chalk.red('Failed to install dependencies'));
       console.log(chalk.yellow('\nPlease run manually:'));
       console.log(chalk.white(`  cd ${projectName}`));
-      console.log(chalk.white(`  npm install\n`));
+      console.log(chalk.white(`  npm install --legacy-peer-deps\n`));
     }
 
     console.log(chalk.green.bold('\n✅ Project created successfully!\n'));
