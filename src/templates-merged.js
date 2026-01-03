@@ -793,9 +793,35 @@ function environmentDev() {
 `;
 }
 
-
-
-
+module.exports = {
+  packageJson,
+  angularJson,
+  tsConfig,
+  tsConfigApp,
+  gitignore,
+  readme,
+  indexHtml,
+  mainTs,
+  stylesScss,
+  designTokens,
+  appConfig,
+  appComponent,
+  appComponentHtml,
+  appComponentScss,
+  appRoutes,
+  userModel,
+  authModel,
+  modelsIndex,
+  authService,
+  servicesIndex,
+  authGuard,
+  roleGuard,
+  guardsIndex,
+  rolesConstant,
+  constantsIndex,
+  environment,
+  environmentDev
+};
 // ============================================
 // UI - ATOMS - BUTTON
 // ============================================
@@ -1531,9 +1557,26 @@ function loginFormComponentScss() {
 `;
 }
 
-
-
-
+module.exports = {
+  buttonComponentTs,
+  buttonComponentHtml,
+  buttonComponentScss,
+  inputComponentTs,
+  inputComponentHtml,
+  inputComponentScss,
+  cardComponentTs,
+  cardComponentHtml,
+  cardComponentScss,
+  sidebarComponentTs,
+  sidebarComponentHtml,
+  sidebarComponentScss,
+  tabsComponentTs,
+  tabsComponentHtml,
+  tabsComponentScss,
+  'login-formComponentTs': loginFormComponentTs,
+  'login-formComponentHtml': loginFormComponentHtml,
+  'login-formComponentScss': loginFormComponentScss
+};
 // ============================================
 // UI - ORGANISMS - DASHBOARD LAYOUT
 // ============================================
@@ -2319,61 +2362,13 @@ function adminPageScss() {
 `;
 }
 
-
-
-
 module.exports = {
-  packageJson,
-  angularJson,
-  tsConfig,
-  tsConfigApp,
-  gitignore,
-  readme,
-  indexHtml,
-  mainTs,
-  stylesScss,
-  designTokens,
-  appConfig,
-  appComponent,
-  appComponentHtml,
-  appComponentScss,
-  appRoutes,
-  userModel,
-  authModel,
-  modelsIndex,
-  authService,
-  servicesIndex,
-  authGuard,
-  roleGuard,
-  guardsIndex,
-  rolesConstant,
-  constantsIndex,
-  environment,
-  environmentDev,
-  buttonComponentTs,
-  buttonComponentHtml,
-  buttonComponentScss,
-  inputComponentTs,
-  inputComponentHtml,
-  inputComponentScss,
-  cardComponentTs,
-  cardComponentHtml,
-  cardComponentScss,
-  sidebarComponentTs,
-  sidebarComponentHtml,
-  sidebarComponentScss,
-  tabsComponentTs,
-  tabsComponentHtml,
-  tabsComponentScss,
-  login-formComponentTs,
-  login-formComponentHtml,
-  login-formComponentScss,
-  dashboard-layoutComponentTs,
-  dashboard-layoutComponentHtml,
-  dashboard-layoutComponentScss,
-  auth-layoutComponentTs,
-  auth-layoutComponentHtml,
-  auth-layoutComponentScss,
+  'dashboard-layoutComponentTs': dashboardLayoutComponentTs,
+  'dashboard-layoutComponentHtml': dashboardLayoutComponentHtml,
+  'dashboard-layoutComponentScss': dashboardLayoutComponentScss,
+  'auth-layoutComponentTs': authLayoutComponentTs,
+  'auth-layoutComponentHtml': authLayoutComponentHtml,
+  'auth-layoutComponentScss': authLayoutComponentScss,
   loginPageTs,
   loginPageHtml,
   loginPageScss,
