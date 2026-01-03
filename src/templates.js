@@ -40,7 +40,7 @@ function packageJson(projectName) {
       "karma-coverage": "~2.2.0",
       "karma-jasmine": "~5.1.0",
       "karma-jasmine-html-reporter": "~2.1.0",
-      "typescript": "~5.6.3"
+      "typescript": "~5.7.2"
     }
   }, null, 2);
 }
@@ -2365,15 +2365,15 @@ module.exports = {
   tabsComponentTs,
   tabsComponentHtml,
   tabsComponentScss,
-  login-formComponentTs,
-  login-formComponentHtml,
-  login-formComponentScss,
-  dashboard-layoutComponentTs,
-  dashboard-layoutComponentHtml,
-  dashboard-layoutComponentScss,
-  auth-layoutComponentTs,
-  auth-layoutComponentHtml,
-  auth-layoutComponentScss,
+  'login-formComponentTs': loginFormComponentTs,
+  'login-formComponentHtml': loginFormComponentHtml,
+  'login-formComponentScss': loginFormComponentScss,
+  'dashboard-layoutComponentTs': dashboardLayoutComponentTs,
+  'dashboard-layoutComponentHtml': dashboardLayoutComponentHtml,
+  'dashboard-layoutComponentScss': dashboardLayoutComponentScss,
+  'auth-layoutComponentTs': authLayoutComponentTs,
+  'auth-layoutComponentHtml': authLayoutComponentHtml,
+  'auth-layoutComponentScss': authLayoutComponentScss,
   loginPageTs,
   loginPageHtml,
   loginPageScss,
