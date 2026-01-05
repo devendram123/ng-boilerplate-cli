@@ -87,6 +87,7 @@ async function createProject(projectName) {
 
   } catch (error) {
     console.log(chalk.red(`\n❌ Error creating project: ${error.message}\n`));
+    console.error(error.stack);
     process.exit(1);
   }
 }
