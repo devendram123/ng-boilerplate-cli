@@ -1659,7 +1659,7 @@ function authLayoutComponentHtml() {
 }
 
 function authLayoutComponentScss() {
-.  return `@use 'src/assets/styles/variables' as *;
+  return `@use 'src/assets/styles/variables' as *;
 
 .auth-layout {
   min-height: 100vh;
