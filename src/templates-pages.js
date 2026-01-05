@@ -29,7 +29,7 @@ function dashboardLayoutComponentHtml() {
 }
 
 function dashboardLayoutComponentScss() {
-  return `@import '../../../../assets/styles/variables';
+  return `@use '../../../../assets/styles/variables' as *;
 
 .dashboard-layout {
   display: flex;
@@ -80,14 +80,14 @@ function authLayoutComponentHtml() {
 }
 
 function authLayoutComponentScss() {
-  return `@import '../../../../assets/styles/variables';
+  return `@use '../../../../assets/styles/variables' as *;
 
 .auth-layout {
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, $primary-color 0%, lighten($primary-color, 10%) 100%);
+  background: linear-gradient(135deg, $primary-color 0%, color-mix(in srgb, $primary-color 90%, white) 100%);
   padding: $spacing-lg;
 
   &__container {
@@ -186,7 +186,7 @@ function loginPageHtml() {
 }
 
 function loginPageScss() {
-  return `@import '../../../assets/styles/variables';
+  return `@use '../../../assets/styles/variables' as *;
 
 .login-page {
   &__title {
@@ -235,9 +235,11 @@ import { AuthService } from '../../core/services/auth.service';
   styleUrl: './dashboard.component.scss'
 })
 export class DashboardComponent {
-  constructor(private authService: AuthService) {}
+  user;
 
-  user = this.authService.user;
+  constructor(private authService: AuthService) {
+    this.user = this.authService.user;
+  }
 
   stats = [
     { label: 'Total Users', value: '1,234', icon: 'people', color: '#1976d2' },
@@ -285,7 +287,7 @@ function dashboardPageHtml() {
 }
 
 function dashboardPageScss() {
-  return `@import '../../../assets/styles/variables';
+  return `@use '../../../assets/styles/variables' as *;
 
 .dashboard-page {
   &__header {
@@ -390,9 +392,11 @@ import { AuthService } from '../../core/services/auth.service';
   styleUrl: './user.component.scss'
 })
 export class UserComponent {
-  constructor(private authService: AuthService) {}
+  user;
 
-  user = this.authService.user;
+  constructor(private authService: AuthService) {
+    this.user = this.authService.user;
+  }
 
   userInfo = [
     { label: 'Username', value: this.user()?.username },
@@ -445,7 +449,7 @@ function userPageHtml() {
 }
 
 function userPageScss() {
-  return `@import '../../../assets/styles/variables';
+  return `@use '../../../assets/styles/variables' as *;
 
 .user-page {
   &__header {
@@ -637,7 +641,7 @@ function adminPageHtml() {
 }
 
 function adminPageScss() {
-  return `@import '../../../assets/styles/variables';
+  return `@use '../../../assets/styles/variables' as *;
 
 .admin-page {
   &__header {
@@ -665,7 +669,7 @@ function adminPageScss() {
     background-color: rgba($warning-color, 0.1);
     border-left: 4px solid $warning-color;
     border-radius: $border-radius-sm;
-    color: darken($warning-color, 20%);
+    color: color-mix(in srgb, $warning-color 60%, black);
     margin-bottom: $spacing-xl;
     font-weight: 500;
 

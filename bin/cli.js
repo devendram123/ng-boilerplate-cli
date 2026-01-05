@@ -16,6 +16,15 @@ program
     createProject(projectName);
   });
 
+program
+  .command('create-collateral')
+  .description('Create the collateral-gap production-ready Angular project')
+  .action(() => {
+    const projectName = 'collateral-gap';
+    console.log(chalk.blue.bold('\n🚀 Creating collateral-gap (Angular 21.0.2) Boilerplate Project...\n'));
+    createProject(projectName);
+  });
+
 program.parse(process.argv);
 
 if (!process.argv.slice(2).length) {

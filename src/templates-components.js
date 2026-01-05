@@ -41,7 +41,7 @@ function buttonComponentHtml() {
 }
 
 function buttonComponentScss() {
-  return `@import '../../../../assets/styles/variables';
+  return `@use '../../../../assets/styles/variables' as *;
 
 .btn {
   padding: $spacing-sm $spacing-lg;
@@ -58,7 +58,7 @@ function buttonComponentScss() {
     color: white;
 
     &:hover:not(:disabled) {
-      background-color: darken($primary-color, 10%);
+      background-color: color-mix(in srgb, $primary-color 80%, black);
       box-shadow: $shadow-md;
     }
   }
@@ -176,7 +176,7 @@ function inputComponentHtml() {
 }
 
 function inputComponentScss() {
-  return `@import '../../../../assets/styles/variables';
+  return `@use '../../../../assets/styles/variables' as *;
 
 .input-wrapper {
   display: flex;
@@ -255,7 +255,7 @@ function cardComponentHtml() {
 }
 
 function cardComponentScss() {
-  return `@import '../../../../assets/styles/variables';
+  return `@use '../../../../assets/styles/variables' as *;
 
 .card {
   background-color: white;
@@ -318,12 +318,14 @@ interface MenuItem {
   styleUrl: './sidebar.component.scss'
 })
 export class SidebarComponent {
+  user;
+
   constructor(
     private authService: AuthService,
     private router: Router
-  ) {}
-
-  user = this.authService.user;
+  ) {
+    this.user = this.authService.user;
+  }
 
   menuItems: MenuItem[] = [
     { label: 'Dashboard', icon: 'dashboard', route: '/dashboard', roles: [UserRole.ADMIN, UserRole.USER] },
@@ -377,7 +379,7 @@ function sidebarComponentHtml() {
 }
 
 function sidebarComponentScss() {
-  return `@import '../../../../assets/styles/variables';
+  return `@use '../../../../assets/styles/variables' as *;
 
 .sidebar {
   width: $sidebar-width;
@@ -528,7 +530,7 @@ function tabsComponentHtml() {
 }
 
 function tabsComponentScss() {
-  return `@import '../../../../assets/styles/variables';
+  return `@use '../../../../assets/styles/variables' as *;
 
 .tabs {
   display: flex;
@@ -674,7 +676,7 @@ function loginFormComponentHtml() {
 }
 
 function loginFormComponentScss() {
-  return `@import '../../../../assets/styles/variables';
+  return `@use '../../../../assets/styles/variables' as *;
 
 .login-form {
   display: flex;
