@@ -865,7 +865,7 @@ function buttonComponentHtml() {
 }
 
 function buttonComponentScss() {
-  return `@import '../../../../assets/styles/variables';
+  return `@use 'src/assets/styles/variables' as *;
 
 .btn {
   padding: $spacing-sm $spacing-lg;
@@ -882,7 +882,7 @@ function buttonComponentScss() {
     color: white;
 
     &:hover:not(:disabled) {
-      background-color: darken($primary-color, 10%);
+      background-color: color.adjust($primary-color, $lightness: -10%);
       box-shadow: $shadow-md;
     }
   }
@@ -1000,7 +1000,7 @@ function inputComponentHtml() {
 }
 
 function inputComponentScss() {
-  return `@import '../../../../assets/styles/variables';
+  return `@use 'src/assets/styles/variables' as *;
 
 .input-wrapper {
   display: flex;
@@ -1024,14 +1024,14 @@ function inputComponentScss() {
     &:focus {
       outline: none;
       border-color: $primary-color;
-      box-shadow: 0 0 0 3px rgba($primary-color, 0.1);
+      box-shadow: 0 0 0 3px color.adjust($primary-color, $alpha: 0.1);
     }
 
     &--error {
       border-color: $error-color;
 
       &:focus {
-        box-shadow: 0 0 0 3px rgba($error-color, 0.1);
+        box-shadow: 0 0 0 3px color.adjust($error-color, $alpha: 0.1);
       }
     }
 
@@ -1079,7 +1079,7 @@ function cardComponentHtml() {
 }
 
 function cardComponentScss() {
-  return `@import '../../../../assets/styles/variables';
+  return `@use 'src/assets/styles/variables' as *;
 
 .card {
   background-color: white;
@@ -1201,7 +1201,7 @@ function sidebarComponentHtml() {
 }
 
 function sidebarComponentScss() {
-  return `@import '../../../../assets/styles/variables';
+  return `@use 'src/assets/styles/variables' as *;
 
 .sidebar {
   width: $sidebar-width;
@@ -1258,12 +1258,12 @@ function sidebarComponentScss() {
     transition: all $transition-fast;
 
     &:hover {
-      background-color: rgba(white, 0.05);
+      background-color: color.adjust(white, $alpha: 0.05);
       color: white;
     }
 
     &--active {
-      background-color: rgba($primary-color, 0.2);
+      background-color: color.adjust($primary-color, $alpha: 0.2);
       color: white;
       border-right: 3px solid $primary-color;
     }
@@ -1279,7 +1279,7 @@ function sidebarComponentScss() {
 
   &__footer {
     padding: $spacing-lg;
-    border-top: 1px solid rgba(white, 0.1);
+    border-top: 1px solid color.adjust(white, $alpha: 0.1);
   }
 
   &__logout {
@@ -1289,15 +1289,15 @@ function sidebarComponentScss() {
     width: 100%;
     padding: $spacing-md;
     background-color: transparent;
-    border: 1px solid rgba(white, 0.2);
+    border: 1px solid color.adjust(white, $alpha: 0.2);
     border-radius: $border-radius-sm;
     color: white;
     cursor: pointer;
     transition: all $transition-fast;
 
     &:hover {
-      background-color: rgba(white, 0.1);
-      border-color: rgba(white, 0.4);
+      background-color: color.adjust(white, $alpha: 0.1);
+      border-color: color.adjust(white, $alpha: 0.4);
     }
   }
 }
@@ -1352,7 +1352,7 @@ function tabsComponentHtml() {
 }
 
 function tabsComponentScss() {
-  return `@import '../../../../assets/styles/variables';
+  return `@use 'src/assets/styles/variables' as *;
 
 .tabs {
   display: flex;
@@ -1376,7 +1376,7 @@ function tabsComponentScss() {
 
     &:hover {
       color: $primary-color;
-      background-color: rgba($primary-color, 0.05);
+      background-color: color.adjust($primary-color, $alpha: 0.05);
     }
 
     &--active {
@@ -1498,7 +1498,7 @@ function loginFormComponentHtml() {
 }
 
 function loginFormComponentScss() {
-  return `@import '../../../../assets/styles/variables';
+  return `@use 'src/assets/styles/variables' as *;
 
 .login-form {
   display: flex;
@@ -1528,7 +1528,7 @@ function loginFormComponentScss() {
 
     &:hover {
       border-color: $primary-color;
-      background-color: rgba($primary-color, 0.05);
+      background-color: color.adjust($primary-color, $alpha: 0.05);
     }
 
     &--active {
@@ -1659,14 +1659,14 @@ function authLayoutComponentHtml() {
 }
 
 function authLayoutComponentScss() {
-  return `@import '../../../../assets/styles/variables';
+.  return `@use 'src/assets/styles/variables' as *;
 
 .auth-layout {
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, $primary-color 0%, lighten($primary-color, 10%) 100%);
+  background: linear-gradient(135deg, $primary-color 0%, color.adjust($primary-color, $lightness: 10%) 100%);
   padding: $spacing-lg;
 
   &__container {
@@ -2216,7 +2216,7 @@ function adminPageHtml() {
 }
 
 function adminPageScss() {
-  return `@import '../../../assets/styles/variables';
+  return `@use 'src/assets/styles/variables' as *;
 
 .admin-page {
   &__header {
@@ -2241,10 +2241,10 @@ function adminPageScss() {
     align-items: center;
     gap: $spacing-md;
     padding: $spacing-md $spacing-lg;
-    background-color: rgba($warning-color, 0.1);
+    background-color: color.adjust($warning-color, $alpha: 0.1);
     border-left: 4px solid $warning-color;
     border-radius: $border-radius-sm;
-    color: darken($warning-color, 20%);
+    color: color.adjust($warning-color, $lightness: -20%);
     margin-bottom: $spacing-xl;
     font-weight: 500;
 
@@ -2286,7 +2286,7 @@ function adminPageScss() {
     width: 50px;
     height: 50px;
     border-radius: $border-radius-md;
-    background-color: rgba($primary-color, 0.1);
+    background-color: color.adjust($primary-color, $alpha: 0.1);
     display: flex;
     align-items: center;
     justify-content: center;
