@@ -2210,7 +2210,7 @@ function adminPageScss() {
     background-color: color.adjust($warning-color, $alpha: 0.1);
     border-left: 4px solid $warning-color;
     border-radius: $border-radius-sm;
-    color: darken($warning-color, 20%);
+    color: color.adjust($warning-color, $lightness: -20%);
     margin-bottom: $spacing-xl;
     font-weight: 500;
 
