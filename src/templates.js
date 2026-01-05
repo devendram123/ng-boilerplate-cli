@@ -840,7 +840,8 @@ function buttonComponentHtml() {
 }
 
 function buttonComponentScss() {
-  return `@use '../../../../assets/styles/variables' as *;
+  return `@use 'sass:color';
+@use '../../../../assets/styles/variables' as *;
 
 .btn {
   padding: $spacing-sm $spacing-lg;
@@ -975,7 +976,8 @@ function inputComponentHtml() {
 }
 
 function inputComponentScss() {
-  return `@use '../../../../assets/styles/variables' as *;
+  return `@use 'sass:color';
+@use '../../../../assets/styles/variables' as *;
 
 .input-wrapper {
   display: flex;
@@ -1097,7 +1099,7 @@ function cardComponentScss() {
 // ============================================
 
 function sidebarComponentTs() {
-  return `import { Component, Input, computed } from '@angular/core';
+  return `import { Component, Input, computed, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Router } from '@angular/router';
 import { AuthService } from '../../../core/services/auth.service';
@@ -1117,10 +1119,8 @@ interface MenuItem {
   styleUrl: './sidebar.component.scss'
 })
 export class SidebarComponent {
-  constructor(
-    private authService: AuthService,
-    private router: Router
-  ) {}
+  authService = inject(AuthService);
+  router = inject(Router);
 
   user = this.authService.user;
 
@@ -1176,7 +1176,8 @@ function sidebarComponentHtml() {
 }
 
 function sidebarComponentScss() {
-  return `@use '../../../../assets/styles/variables' as *;
+  return `@use 'sass:color';
+@use '../../../../assets/styles/variables' as *;
 
 .sidebar {
   width: $sidebar-width;
@@ -1473,7 +1474,8 @@ function loginFormComponentHtml() {
 }
 
 function loginFormComponentScss() {
-  return `@use 'src/assets/styles/variables' as *;
+  return `@use 'sass:color';
+@use '../../../../assets/styles/variables' as *;
 
 .login-form {
   display: flex;
@@ -1566,7 +1568,8 @@ function dashboardLayoutComponentHtml() {
 }
 
 function dashboardLayoutComponentScss() {
-  return `@use 'src/assets/styles/variables' as *;
+  return `@use 'sass:color';
+@use '../../../../assets/styles/variables' as *;
 
 .dashboard-layout {
   display: flex;
@@ -1617,7 +1620,8 @@ function authLayoutComponentHtml() {
 }
 
 function authLayoutComponentScss() {
-  return `@use 'src/assets/styles/variables' as *;
+  return `@use 'sass:color';
+@use '../../../../assets/styles/variables' as *;
 
 .auth-layout {
   min-height: 100vh;
@@ -1723,7 +1727,8 @@ function loginPageHtml() {
 }
 
 function loginPageScss() {
-  return `@import '../../../assets/styles/variables';
+  return `@use 'sass:color';
+@use '../../../assets/styles/variables' as *;
 
 .login-page {
   &__title {
@@ -1759,7 +1764,7 @@ function loginPageScss() {
 // ============================================
 
 function dashboardPageTs() {
-  return `import { Component } from '@angular/core';
+  return `import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DashboardLayoutComponent } from '../../ui/organisms/dashboard-layout/dashboard-layout.component';
 import { CardComponent } from '../../ui/atoms/card/card.component';
@@ -1772,7 +1777,7 @@ import { AuthService } from '../../core/services/auth.service';
   styleUrl: './dashboard.component.scss'
 })
 export class DashboardComponent {
-  constructor(private authService: AuthService) {}
+  authService = inject(AuthService);
 
   user = this.authService.user;
 
@@ -1822,7 +1827,8 @@ function dashboardPageHtml() {
 }
 
 function dashboardPageScss() {
-  return `@import '../../../assets/styles/variables';
+  return `@use 'sass:color';
+@use '../../../assets/styles/variables' as *;
 
 .dashboard-page {
   &__header {
@@ -1914,7 +1920,7 @@ function dashboardPageScss() {
 // ============================================
 
 function userPageTs() {
-  return `import { Component } from '@angular/core';
+  return `import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DashboardLayoutComponent } from '../../ui/organisms/dashboard-layout/dashboard-layout.component';
 import { CardComponent } from '../../ui/atoms/card/card.component';
@@ -1927,7 +1933,7 @@ import { AuthService } from '../../core/services/auth.service';
   styleUrl: './user.component.scss'
 })
 export class UserComponent {
-  constructor(private authService: AuthService) {}
+  authService = inject(AuthService);
 
   user = this.authService.user;
 
@@ -1982,7 +1988,8 @@ function userPageHtml() {
 }
 
 function userPageScss() {
-  return `@import '../../../assets/styles/variables';
+  return `@use 'sass:color';
+@use '../../../assets/styles/variables' as *;
 
 .user-page {
   &__header {
@@ -2174,7 +2181,8 @@ function adminPageHtml() {
 }
 
 function adminPageScss() {
-  return `@import '../../../assets/styles/variables';
+  return `@use 'sass:color';
+@use '../../../assets/styles/variables' as *;
 
 .admin-page {
   &__header {
