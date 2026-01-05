@@ -494,18 +494,18 @@ function appComponentHtml() {
 
 function appComponentScss() {
   return `// Root component styles
-    &:hover {
-      border-color: $primary-color;
-      background-color: color.adjust($primary-color, $alpha: 0.05);
-    }
-    border-bottom: 1px solid color.adjust(white, $alpha: 0.1);
-      background-color: color.adjust(white, $alpha: 0.05);
-      background-color: color.adjust($primary-color, $alpha: 0.2);
-    border-top: 1px solid color.adjust(white, $alpha: 0.1);
-    border: 1px solid color.adjust(white, $alpha: 0.2);
-      background-color: color.adjust(white, $alpha: 0.1);
-      border-color: color.adjust(white, $alpha: 0.4);
-      background-color: color.adjust($primary-color, $alpha: 0.05);
+:host {
+  display: block;
+  height: 100%;
+}
+`;
+}
+
+function appRoutes() {
+  return `import { Routes } from '@angular/router';
+import { AuthGuard } from './core/guards/auth.guard';
+import { RoleGuard } from './core/guards/role.guard';
+import { UserRole } from './shared/constants/roles';
 
 export const routes: Routes = [
   {
@@ -539,6 +539,7 @@ export const routes: Routes = [
   }
 ];
 `;
+}
 }
 
 // ============================================
