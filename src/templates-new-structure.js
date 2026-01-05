@@ -403,6 +403,7 @@ $transition-slow: 500ms ease-in-out;
 
 function mixins() {
   return `// Mixins
+@use 'variables' as *;
 
 @mixin flex-center {
   display: flex;
@@ -436,6 +437,7 @@ function mixins() {
 
 function globalStyles() {
   return `// Global Styles
+@use 'variables' as *;
 
 .container {
   max-width: 1200px;
