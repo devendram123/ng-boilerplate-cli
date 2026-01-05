@@ -40,7 +40,7 @@ function packageJson(projectName) {
       "karma-coverage": "~2.2.0",
       "karma-jasmine": "~5.1.0",
       "karma-jasmine-html-reporter": "~2.1.0",
-      "typescript": "~5.6.3"
+      "typescript": "~5.9.0"
     }
   }, null, 2);
 }
@@ -311,9 +311,9 @@ bootstrapApplication(AppComponent, appConfig)
 }
 
 function stylesScss() {
-  return `@import './assets/styles/variables';
-@import './assets/styles/mixins';
-@import './assets/styles/global';
+  return `@use './assets/styles/variables' as *;
+@use './assets/styles/mixins' as *;
+@use './assets/styles/global';
 
 * {
   margin: 0;
